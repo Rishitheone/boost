@@ -1,0 +1,44 @@
+<mat-toolbar>
+    <span>Details</span>
+    <span class="fill-remaining-space"></span>
+    <button
+      class="btn-dialog-close"
+      mat-stroked-button
+      (click)="onClose()"
+      tabIndex="-1"
+    >
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-toolbar>
+<div class="row">
+  <div class="col-md-4">
+    <img
+      src="{{ details.school_photo }}"
+      alt=""
+      style="width: 200px;height: 100px;"
+      class="avatar"
+    />
+  </div>
+  <div class="col-md-4">
+    <img
+      src="{{ details.activity_photo }}"
+      alt=""
+      style="width: 100px;height: 100px;"
+    />
+  </div>
+  <div class="col-md-4">
+    <img
+      src="{{ details.notice_board_photo }}"
+      alt=""
+      style="width: 100px;height: 100px;"
+    />
+  </div>
+  <div class="col-md-6">
+    <p>SchoolName : {{ details.school_name }}</p>
+    <p>School Loaction : {{ details.school_location }}</p>
+  </div>
+  <div class="col-md-6">
+    <p>State : {{ details?.state }}</p>
+    <p>Village : {{ details?.village }}</p>
+  </div>
+</div>

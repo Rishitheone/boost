@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span><a [routerLink]="['/home']" >
+        <img src="../assets/img/images Logo.png" alt="logo" class="logo">
+      </a></span>
+      <span class="example-spacer"></span>
+      <span>
+        <button mat-button *ngIf="authservice.loggedIn()" (click)="authservice.logOut()">
+          Logout
+          <i class="material-icons">
+            exit_to_app
+            </i>
+          </button>
+        <!-- <a >Logout</a> -->
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+  

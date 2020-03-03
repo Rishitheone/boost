@@ -1,0 +1,33 @@
+<mat-toolbar>
+    <span>Create User</span>
+    <span class="fill-remaining-space"></span>
+    <button
+      class="btn-dialog-close"
+      mat-stroked-button
+      (click)="onClose()"
+      tabIndex="-1"
+    >
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-toolbar>
+  <img src="{{imgr}}" alt="" style="width: 100px;height: 100px;">
+  <img src="{{imgrg}}" alt="" style="width: 100px;height: 100px;">
+  <div class="row">
+    <form [formGroup]="form" class="normal-form">
+      <div class="col-md-6">
+        <input matInput placeholder="firstname" [(ngModel)]="data.id" [ngModelOptions]="{standalone: true}"/>
+        <input matInput placeholder="firstname" [(ngModel)]="data.name" [ngModelOptions]="{standalone: true}"/>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field >
+          <mat-label>User Name</mat-label>
+          <mat-select formControlName="user_id">
+            <mat-option *ngFor="let food of dataSource" [value]="food.id">
+              {{ food.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+  <button type="submit" (click)="onSubmit()">Submit</button>

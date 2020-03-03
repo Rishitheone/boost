@@ -1,0 +1,62 @@
+<mat-toolbar>
+  <span>Create User</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
+    <mat-icon>clear</mat-icon>
+  </button>
+</mat-toolbar>
+<form [formGroup]="form" class="normal-form" autocomplete="off">
+  <!-- <mat-grid-list cols="2" rowHeight="150px"> -->
+  <div class="row">
+    <div class="col-md-6">
+      <!-- <mat-grid-tile> -->
+      <div class="controles-container">
+        <mat-form-field>
+          <input formControlName="name" matInput placeholder="Full Name" required />
+          <mat-error *ngIf="!form.controls['name'].valid && form.controls['name'].touched">This field is mandatory.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="email" matInput placeholder="Email" required />
+          <mat-error *ngIf="!form.controls['email'].valid && form.controls['email'].touched">
+            Please enter a valid email address
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <!-- </mat-grid-tile> -->
+    </div>
+    <div class="col-md-6">
+      <!-- <mat-grid-tile> -->
+      <div class="controles-container">
+        <mat-form-field>
+          <input formControlName="password" matInput placeholder="Password" required />
+          <mat-error *ngIf="!form.controls['password'].valid && form.controls['password'].touched">Password is required
+          </mat-error>
+        </mat-form-field>
+        <!-- /////// -->
+        <mat-form-field>
+          <mat-label>Type</mat-label>
+          <mat-select formControlName="role">
+            <mat-option *ngFor="let user of users" [value]="user.value">
+              {{user.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="!form.controls['role'].valid && form.controls['role'].touched">User type is required</mat-error>
+        </mat-form-field>
+        <!-- ///////// -->
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" (click)="onSubmit()" [disabled]="!form.valid">
+            Submit
+          </button>
+          <button mat-raised-button type="button" color="warn" (click)="onClear()">
+            Clear
+          </button>
+        </div>
+      </div>
+      <!-- </mat-grid-tile> -->
+    </div>
+  </div>
+
+
+  <!-- </mat-grid-list> -->
+</form>
